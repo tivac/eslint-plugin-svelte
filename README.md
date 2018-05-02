@@ -3,6 +3,31 @@ eslint-plugin-svelte
 
 :warning: Eventually this will be a collection of svelte-oriented ESLint rules. :warning:
 
+## Using the plugin
+
+Add the plugin's name to the `plugin` section of your ESLint config.
+
+```json
+{
+    "plugins" : [
+        "@tivac/svelte"
+    ]
+}
+```
+
+### Shared config
+
+This plugin provides a shared config named `svelte` which can be used by adding it to the `extends` section in your ESLint config.
+
+```json
+{
+    "extends" : [
+        "eslint:recommended",
+        "plugin:@tivac/svelte/svelte"
+    ]
+}
+```
+
 ## Rules
 
 - [`property-ordering`](#property-ordering)
