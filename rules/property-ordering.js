@@ -97,7 +97,7 @@ module.exports = {
                 context.report({
                     node,
                     loc     : node.key.loc,
-                    message : "Expected object keys to ordered. {{name}} should come before {{prev}}.",
+                    message : `Expected object keys to ordered. "{{name}}" should come before "{{prev}}".`,
                     data    : {
                         name,
                         prev

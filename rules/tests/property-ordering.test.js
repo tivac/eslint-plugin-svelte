@@ -79,7 +79,7 @@ ruleTester.run("property-ordering", rule, {
                 ]
             }],
             errors : [{
-                message : "Expected object keys to ordered. data should come before immutable."
+                message : `Expected object keys to ordered. "data" should come before "immutable".`
             }]
         },
 
@@ -92,7 +92,7 @@ ruleTester.run("property-ordering", rule, {
                 ]
             }],
             errors : [{
-                message : "Expected object keys to ordered. data should come before immutable."
+                message : `Expected object keys to ordered. "data" should come before "immutable".`
             }]
         },
 
@@ -105,7 +105,7 @@ ruleTester.run("property-ordering", rule, {
                 ]
             }],
             errors : [{
-                message : "Expected object keys to ordered. data should come before immutable."
+                message : `Expected object keys to ordered. "data" should come before "immutable".`
             }]
         },
     ]
