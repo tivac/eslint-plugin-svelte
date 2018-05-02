@@ -101,4 +101,4 @@ The 1st option is an object which has 1 property
     - `onupdate`
     - `setup`
 
-Any property names which are not in `order` will be assumed to go after all sorted properties and the order is not guaranteed.
+Any property names which are not in `order` will be ignored, so it's better to be explicit when configuring.

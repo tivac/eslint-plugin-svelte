@@ -14,22 +14,9 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("property-ordering", rule, {
     valid : [
-        // {
-        //     code : dedent(`
-        //         export default { immutable : true, data : () => {} };
-        //     `),
-
-        //     options : [{
-        //         order : [
-        //             "immutable",
-        //             "data",
-        //         ]
-        //     }]
-        // },
-        
         {
             code : dedent(`
-                export default { immutable : true, data : () => { return { css }; } };
+                export default { immutable, data };
             `),
 
             options : [{
@@ -40,42 +27,81 @@ ruleTester.run("property-ordering", rule, {
             }]
         },
 
-        // {
-        //     code : dedent(`
-        //         export default { immutable : true, data : () => {} };
-        //     `),
+        {
+            code : dedent(`
+                export default { immutable, data, unknown };
+            `),
 
-        //     options : [{
-        //         order : [
-        //             "immutable",
-        //             "namespace",
-        //             "components",
-        //             "data",
-        //         ]
-        //     }]
-        // }
+            options : [{
+                order : [
+                    "immutable",
+                    "data",
+                ]
+            }]
+        },
+        
+        {
+            code : dedent(`
+                export default { immutable, data : () => { return { data, immutable }; } };
+            `),
+
+            options : [{
+                order : [
+                    "immutable",
+                    "data",
+                ]
+            }]
+        },
+
+        {
+            code : dedent(`
+                export default { immutable, data };
+            `),
+
+            options : [{
+                order : [
+                    "immutable",
+                    "namespace",
+                    "components",
+                    "data",
+                ]
+            }]
+        }
     ],
 
     invalid : [
-        // {
-        //     code    : dedent(`export default { immutable : true, data : () => {} }; `),
-        //     options : [{
-        //         order : [
-        //             "data",
-        //             "immutable"
-        //         ]
-        //     }],
-        //     errors : [{
-        //         message : "Expected object keys to ordered. data should come before immutable."
-        //     }]
-        // },
-        
         {
-            code    : dedent(`export default { immutable : true, data : () => { return { data }; } }; `),
+            code    : dedent(`export default { immutable, data }; `),
             options : [{
                 order : [
                     "data",
-                    "immutable"
+                    "immutable",
+                ]
+            }],
+            errors : [{
+                message : "Expected object keys to ordered. data should come before immutable."
+            }]
+        },
+
+        {
+            code    : dedent(`export default { unknown, immutable, data }; `),
+            options : [{
+                order : [
+                    "data",
+                    "immutable",
+                ]
+            }],
+            errors : [{
+                message : "Expected object keys to ordered. data should come before immutable."
+            }]
+        },
+
+        {
+            code    : dedent(`export default { immutable, data : () => { return { immutable }; } }; `),
+            options : [{
+                order : [
+                    "data",
+                    "immutable",
                 ]
             }],
             errors : [{
