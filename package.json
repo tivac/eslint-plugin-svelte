@@ -1,6 +1,6 @@
 {
   "name": "@tivac/eslint-plugin-svelte",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Svelte.js focused ESLint rules",
   "main": "index.js",
   "devDependencies": {
