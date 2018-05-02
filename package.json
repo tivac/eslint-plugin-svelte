@@ -18,5 +18,9 @@
     "eslintplugin"
   ],
   "author": "Pat Cavit <npm@patcavit.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "tivac/eslint-plugin-svelte",
+  "bugs": {
+    "url": "https://github.com/tivac/eslint-plugin-svelte/issues"
+  }
 }
