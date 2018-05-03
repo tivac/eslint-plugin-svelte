@@ -13,6 +13,7 @@ module.exports = {
                         // Static info
                         "immutable",
                         "namespace",
+                        "tag",
 
                         // Components
                         "components",
@@ -20,16 +21,23 @@ module.exports = {
                         // Component data
                         "data",
                         "computed",
+                        "props",
+                        "store",
                         
                         // General utility methods
                         "actions",
+                        "events",
                         "helpers",
                         "methods",
+                        "transitions",
                         
                         // Lifecycle Events
                         "setup",
+                        "preload",
                         "oncreate",
+                        "onrender",
                         "ondestroy",
+                        "onteardown",
                         "onstate",
                         "onupdate",
                     ]
