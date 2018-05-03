@@ -91,14 +91,22 @@ The 1st option is an object which has 1 property
     - `components`
     - `computed`
     - `data`
+    - `events`
     - `helpers`
     - `immutable`
     - `methods`
     - `namespace`
     - `oncreate`
     - `ondestroy`
+    - `onrender` :warning: deprecated in svelte v2
     - `onstate`
+    - `onteardown` :warning: deprecated in svelte v2
     - `onupdate`
+    - `preload`
+    - `props`
     - `setup`
+    - `store`
+    - `tag`
+    - `transitions`
 
 Any property names which are not in `order` will be ignored, so it's better to be explicit when configuring.
