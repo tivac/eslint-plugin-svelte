@@ -1,6 +1,8 @@
 eslint-plugin-svelte
 ====================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tivac/eslint-plugin-svelte.svg)](https://greenkeeper.io/)
+
 :warning: Eventually this will be a collection of svelte-oriented ESLint rules. :warning:
 
 ## Using the plugin
