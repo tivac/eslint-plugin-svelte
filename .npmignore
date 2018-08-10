@@ -1,3 +1,4 @@
 tests
 .eslint*
 .git*
+jest.config.js
