@@ -1,6 +1,6 @@
 "use strict";
 
-const utils = require("eslint/lib/ast-utils.js");
+const utils = require("eslint/lib/util/ast-utils.js");
 
 function getName(node) {
     return utils.getStaticPropertyName(node) || node.key.name || null;
@@ -63,8 +63,8 @@ module.exports = {
                 },
 
                 additionalProperties : false,
-            }
-        ]
+            },
+        ],
     },
 
     create(context) {
@@ -80,7 +80,7 @@ module.exports = {
         return {
             "ExportDefaultDeclaration > ObjectExpression"() {
                 stack = {
-                    prev : null
+                    prev : null,
                 };
             },
 
@@ -110,10 +110,10 @@ module.exports = {
                     message : `Expected object keys to ordered. "{{name}}" should come before "{{prev}}".`,
                     data    : {
                         name,
-                        prev
-                    }
+                        prev,
+                    },
                 });
-            }
+            },
         };
-    }
+    },
 };
