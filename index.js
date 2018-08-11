@@ -2,13 +2,16 @@
 
 module.exports = {
     rules : {
-        "property-ordering" : require("./rules/property-ordering.js")
+        "property-ordering" : require("./rules/property-ordering.js"),
+        onupdate            : require("./rules/onupdate.js"),
     },
 
     configs : {
         svelte : {
             rules : {
-                "@tivac/svelte/property-ordering" : [ 2, {
+                "@tivac/svelte/onupdate" : "warning",
+
+                "@tivac/svelte/property-ordering" : [ "error", {
                     order : [
                         // Static info
                         "immutable",
@@ -40,9 +43,9 @@ module.exports = {
                         "onteardown",
                         "onstate",
                         "onupdate",
-                    ]
-                }]
-            }
-        }
-    }
+                    ],
+                }],
+            },
+        },
+    },
 };
