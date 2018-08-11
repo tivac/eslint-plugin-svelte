@@ -8,8 +8,8 @@ const rule = require("../property-ordering.js");
 const ruleTester = new RuleTester({
     parserOptions : {
         ecmaVersion : 2015,
-        sourceType  : "module"
-    }
+        sourceType  : "module",
+    },
 });
 
 ruleTester.run("property-ordering", rule, {
@@ -23,8 +23,8 @@ ruleTester.run("property-ordering", rule, {
                 order : [
                     "immutable",
                     "data",
-                ]
-            }]
+                ],
+            }],
         },
 
         {
@@ -36,8 +36,8 @@ ruleTester.run("property-ordering", rule, {
                 order : [
                     "immutable",
                     "data",
-                ]
-            }]
+                ],
+            }],
         },
         
         {
@@ -49,8 +49,8 @@ ruleTester.run("property-ordering", rule, {
                 order : [
                     "immutable",
                     "data",
-                ]
-            }]
+                ],
+            }],
         },
 
         {
@@ -64,9 +64,9 @@ ruleTester.run("property-ordering", rule, {
                     "namespace",
                     "components",
                     "data",
-                ]
-            }]
-        }
+                ],
+            }],
+        },
     ],
 
     invalid : [
@@ -76,11 +76,11 @@ ruleTester.run("property-ordering", rule, {
                 order : [
                     "data",
                     "immutable",
-                ]
+                ],
             }],
             errors : [{
-                message : `Expected object keys to ordered. "data" should come before "immutable".`
-            }]
+                message : `Expected object keys to ordered. "data" should come before "immutable".`,
+            }],
         },
 
         {
@@ -89,11 +89,11 @@ ruleTester.run("property-ordering", rule, {
                 order : [
                     "data",
                     "immutable",
-                ]
+                ],
             }],
             errors : [{
-                message : `Expected object keys to ordered. "data" should come before "immutable".`
-            }]
+                message : `Expected object keys to ordered. "data" should come before "immutable".`,
+            }],
         },
 
         {
@@ -102,11 +102,11 @@ ruleTester.run("property-ordering", rule, {
                 order : [
                     "data",
                     "immutable",
-                ]
+                ],
             }],
             errors : [{
-                message : `Expected object keys to ordered. "data" should come before "immutable".`
-            }]
+                message : `Expected object keys to ordered. "data" should come before "immutable".`,
+            }],
         },
-    ]
+    ],
 });
