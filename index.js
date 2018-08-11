@@ -9,8 +9,7 @@ module.exports = {
     configs : {
         svelte : {
             rules : {
-                "@tivac/svelte/onupdate" : "warning",
-
+                "@tivac/svelte/onupdate"          : "warning",
                 "@tivac/svelte/property-ordering" : [ "error", {
                     order : [
                         // Static info
