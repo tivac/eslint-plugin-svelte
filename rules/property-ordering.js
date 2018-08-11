@@ -1,10 +1,6 @@
 "use strict";
 
-const utils = require("eslint/lib/util/ast-utils.js");
-
-function getName(node) {
-    return utils.getStaticPropertyName(node) || node.key.name || null;
-}
+const getName = require("../utils/get-name.js");
 
 function compareOrder(order, prev, curr) {
     const pi = order.indexOf(prev);
