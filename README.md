@@ -1,8 +1,6 @@
 eslint-plugin-svelte
 ====================
 
-:warning: Eventually this will be a collection of svelte-oriented ESLint rules. :warning:
-
 ## Using the plugin
 
 Add the plugin's name to the `plugin` section of your ESLint config.
@@ -31,6 +29,7 @@ This plugin provides a shared config named `svelte` which can be used by adding 
 ## Rules
 
 - [`property-ordering`](#property-ordering)
+- [`onupdate`](#onupdate)
 
 ## Rule Details
 
@@ -110,3 +109,53 @@ The 1st option is an object which has 1 property
     - `transitions`
 
 Any property names which are not in `order` will be ignored, so it's better to be explicit when configuring.
+
+### `onupdate`
+
+The `--fix` option on the command line can automatically fix some of the problems reported by this rule.
+
+This rule warns whenever you use the `onupdate` lifecycle hook, or use `this.on("update")` to subscribe to the `update` lifecycle event. Since `onupdate` fires [after the DOM has been updated](https://svelte.technology/guide#lifecycle-hooks) it might be what you want but often `onstate` is a better choice.
+
+#### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+/* eslint @tivac/svelte/onupdate: "error" */
+/* eslint-env es6 */
+
+export default {
+    onupdate() {
+        // ...
+    },
+};
+
+export default {
+    oncreate() {
+        this.on("update", () => {
+            // ...
+        });
+    },
+};
+```
+
+Examples of **correct** code for this rule:
+
+```js
+/* eslint @tivac/svelte/onupdate: "error" */
+/* eslint-env es6 */
+
+export default {
+    onstate() {
+        // ...
+    },
+};
+
+export default {
+    oncreate() {
+        this.on("state", () => {
+            // ...
+        });
+    },
+};
+```
