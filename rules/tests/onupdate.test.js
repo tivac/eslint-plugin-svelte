@@ -1,5 +1,6 @@
 "use strict";
 
+const dedent = require("dedent");
 const { RuleTester } = require("eslint");
 
 const rule = require("../onupdate.js");
@@ -13,23 +14,53 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("onupdate", rule, {
     valid : [
-        `export default { onstate() { } };`,
-        `export default { oncreate() { this.on("state", () => { }); } };`,
+        dedent(`
+            export default {
+                onstate() { }
+            };
+        `),
+        dedent(`
+            export default {
+                oncreate() {
+                    this.on("state", () => { });
+                }
+            };
+        `),
     ],
     
     invalid : [
         {
-            code   : `export default { onupdate };`,
-            output : `export default { onstate };`,
+            code : dedent(`
+                export default {
+                    onupdate
+                };
+            `),
+            output : dedent(`
+                export default {
+                    onstate
+                };
+            `),
             errors : [{
-                message : "Found onupdate usage. Consider onstate instead",
+                messageId : "property",
             }],
         },
         {
-            code   : `export default { oncreate() { this.on("update", () => { }); } };`,
-            output : `export default { oncreate() { this.on("state", () => { }); } };`,
+            code : dedent(`
+                export default {
+                    oncreate() {
+                        this.on("update", () => { });
+                    }
+                };
+            `),
+            output : dedent(`
+                export default {
+                    oncreate() {
+                        this.on("state", () => { });
+                    }
+                };
+            `),
             errors : [{
-                message : `Found "update" event usage. Consider "state" event instead`,
+                messageId : "subscription",
             }],
         },
     ],

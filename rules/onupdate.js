@@ -1,7 +1,6 @@
 "use strict";
 
-const getName = require("../utils/get-name.js");
-
+const property = `ExportDefaultDeclaration Property[key.name="onupdate"]`;
 const subscription = `ExportDefaultDeclaration CallExpression[arguments.0.value="update"] [object.type="ThisExpression"][property.name="on"]`;
 
 module.exports = {
@@ -11,31 +10,29 @@ module.exports = {
             category    : "Best Practices",
             recommended : false,
         },
-        schema  : [],
-        fixable : true,
+        schema   : [],
+        fixable  : true,
+        messages : {
+            property     : `Found onupdate usage. Consider onstate instead`,
+            subscription : `Found "update" event usage. Consider "state" event instead`,
+        },
     },
 
     create(context) {
         return {
-            "ExportDefaultDeclaration > ObjectExpression > Property"(node) {
-                const name = getName(node);
-
-                if(name !== "onupdate") {
-                    return;
-                }
-
+            [property](node) {
                 context.report({
                     node,
-                    message : `Found onupdate usage. Consider onstate instead`,
-                    fix     : (fixer) => fixer.replaceText(node, "onstate"),
+                    messageId : "property",
+                    fix       : (fixer) => fixer.replaceText(node, "onstate"),
                 });
             },
             
             [subscription](node) {
                 context.report({
-                    node    : node.parent,
-                    message : `Found "update" event usage. Consider "state" event instead`,
-                    fix     : (fixer) => fixer.replaceText(node.parent.arguments[0], `"state"`),
+                    node      : node.parent,
+                    messageId : "subscription",
+                    fix       : (fixer) => fixer.replaceText(node.parent.arguments[0], `"state"`),
                 });
             },
         };
