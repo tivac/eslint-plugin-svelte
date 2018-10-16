@@ -1,8 +1,15 @@
 # Rules
 
-- [`onstate-this-refs`](#onstate-this-refs)
-- [`onupdate`](#onupdate)
-- [`property-ordering`](#property-ordering)
+## Implemented Rules
+
+- [`onstate-this-refs`](#onstate-this-refs) - Detect `this.refs` usage inside an `onstate` handler
+- [`onupdate`](#onupdate) - `onupdate` happens after the DOM is updated, `onstate` might be a better choice
+- [`property-ordering`](#property-ordering) - Define a specific order for svelte component properties
+
+## Proposed Rules
+
+- [`default-data-values`](#default-data-values) - Check that all `this.set` and `this.get` values have defaults from `data()`
+- [`onstate-previous-guard`](#onstate-previous-guard`) - All usage of `onstate` should begin with a guard for when `previous` is `undefined`
 
 ## Rule Details
 
