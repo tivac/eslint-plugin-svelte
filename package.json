@@ -4,14 +4,14 @@
   "description": "Svelte.js focused ESLint rules",
   "main": "index.js",
   "devDependencies": {
-    "@tivac/eslint-config": "^2.2.1",
+    "@tivac/eslint-config": "^2.4.0",
     "dedent": "^0.7.0",
-    "eslint": "^5.3.0",
-    "jest": "^23.5.0",
-    "jest-runner-eslint": "^0.6.0"
+    "eslint": "^6.0.1",
+    "jest": "^24.8.0",
+    "jest-runner-eslint": "^0.7.4"
   },
   "peerDependencies": {
-    "eslint": "5.x"
+    "eslint": ">= 5"
   },
   "scripts": {
     "lint": "eslint . --cache",
