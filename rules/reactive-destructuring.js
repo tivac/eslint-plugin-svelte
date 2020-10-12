@@ -37,7 +37,7 @@ module.exports = {
                 const lTokens = source.getTokens(left);
                 const rTokens = source.getTokens(right);
 
-                return context.report({
+                context.report({
                     node,
                     loc     : node.loc,
                     message : `Prefer destructuring in reactive statements`,

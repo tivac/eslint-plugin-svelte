@@ -25,7 +25,7 @@ module.exports = {
             const source = context.getSourceCode();
             const tokens = source.getTokens(fn);
 
-            return context.report({
+            context.report({
                 node    : fn,
                 loc     : fn.loc,
                 message : `Do not pass async functions to svelte stores.`,
