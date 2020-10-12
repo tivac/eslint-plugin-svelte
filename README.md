@@ -1,22 +1,20 @@
-eslint-plugin-svelte
-====================
+# @tivac/eslint-plugin-svelte
 
 ## Installing the plugin
 
 Install the plugin and its dependencies via npm.
 
 ```bash
-$> npm install --save-dev @tivac/eslint-plugin-svelte eslint-plugin-html
+$> npm install --save-dev @tivac/eslint-plugin-svelte
 ```
 
 ## Using the plugin
 
-Add the plugin's name to the `plugin` section of your ESLint config. You'll also need to use `eslint-plugin-html` to get anything interesting to happen.
+Add the plugin's name to the `plugin` section of your ESLint config.
 
 ```json
 {
     "plugins" : [
-        "html",
         "@tivac/svelte"
     ]
 }
@@ -37,6 +35,9 @@ This plugin provides a shared config named `svelte` which can be used by adding 
 
 ## Rules
 
-- [`onstate-this-refs`](docs/rules.md#onstate-this-refs)
-- [`onupdate`](docs/rules.md#onupdate)
-- [`property-ordering`](docs/rules.md#property-ordering)
+- `reactive-curlies`, don't add `{ ... }` if there's only a single statement
+- `reactive-destructuring`, prefer destructuring for reactive reassignments
+- `reactive-functions`, don't define functions inside reactive statements
+- `reactive-literals`, don't assign literals in a reactive statement
+- `stores-initial-value`, always give svelte stores a default value
+- `stores-no-async`, don't use `async`/`await` inside svelte stores because it causes issues with the auto-unsubscribing features

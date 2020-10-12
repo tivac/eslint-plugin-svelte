@@ -5,11 +5,11 @@ module.exports = {
         "@tivac",
     ],
 
-    parserOptions: {
-        ecmaVersion: 6,
+    parserOptions : {
+        ecmaVersion : 6,
     },
 
-    env: {
+    env : {
       node : true,
     },
 };
