@@ -2,50 +2,23 @@
 
 module.exports = {
     rules : {
-        onupdate            : require("./rules/onupdate.js"),
-        "onstate-this-refs" : require("./rules/onstate-this-refs.js"),
-        "property-ordering" : require("./rules/property-ordering.js"),
+        "reactive-curlies"       : require("./rules/reactive-curlies.js"),
+        "reactive-destructuring" : require("./rules/reactive-destructuring.js"),
+        "reactive-functions"     : require("./rules/reactive-functions.js"),
+        "reactive-literals"      : require("./rules/reactive-literals.js"),
+        "stores-initial-value"   : require("./rules/stores-initial-value.js"),
+        "stores-no-async"        : require("./rules/stores-no-async.js"),
     },
 
     configs : {
         svelte : {
             rules : {
-                "@tivac/svelte/onupdate"          : "warn",
-                "@tivac/svelte/onstate-this-refs" : "warn",
-                "@tivac/svelte/property-ordering" : [ "error", {
-                    order : [
-                        // Static info
-                        "immutable",
-                        "namespace",
-                        "tag",
-
-                        // Components
-                        "components",
-                        
-                        // Component data
-                        "data",
-                        "computed",
-                        "props",
-                        "store",
-                        
-                        // General utility methods
-                        "actions",
-                        "events",
-                        "helpers",
-                        "methods",
-                        "transitions",
-                        
-                        // Lifecycle Events
-                        "setup",
-                        "preload",
-                        "oncreate",
-                        "onrender",
-                        "ondestroy",
-                        "onteardown",
-                        "onstate",
-                        "onupdate",
-                    ],
-                }],
+                "@tivac/svelte/reactive-curlies"       : "warn",
+                "@tivac/svelte/reactive-destructuring" : "warn",
+                "@tivac/svelte/reactive-functions"     : "error",
+                "@tivac/svelte/reactive-literals"      : "warn",
+                "@tivac/svelte/stores-initial-value"   : "warn",
+                "@tivac/svelte/stores-no-async"        : "error",
             },
         },
     },
