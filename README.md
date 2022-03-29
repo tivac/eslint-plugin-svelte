@@ -41,3 +41,4 @@ This plugin provides a shared config named `svelte` which can be used by adding 
 - `reactive-literals`, don't assign literals in a reactive statement
 - `stores-initial-value`, always give svelte stores a default value
 - `stores-no-async`, don't use `async`/`await` inside svelte stores because it causes issues with the auto-unsubscribing features
+- `store-prop-destructuring`, don't access store values as `$foo.bar` but instead destructure them `$: ({ bar } = $foo);` for more granular redraws
