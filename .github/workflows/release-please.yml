@@ -11,7 +11,8 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
-          # package-name: "@tivac/eslint-plugin-svelte"
+          monorepo-tags: false
+          pull-request-title-pattern: "release: v{{version}} 📦🚀🌐"
       
       - uses: actions/checkout@v2
         # these if statements ensure that a publication only occurs when
