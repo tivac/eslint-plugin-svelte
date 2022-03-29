@@ -7,8 +7,12 @@ module.exports = {
             category    : "Best Practices",
             recommended : false,
         },
+
+        messages : {
+            unnecessaryCurlies : `Do not wrap reactive statements in curly braces unless necessary.`,
+        },
         
-        fixable : true,
+        fixable : "code",
     },
 
     create(context) {
@@ -19,24 +23,24 @@ module.exports = {
             const source = context.getSourceCode();
 
             return context.report({
-                node    : parent,
-                loc     : parent.loc,
-                message : `Do not wrap reactive statements in curly braces unless necessary.`,
+                node      : parent,
+                loc       : parent.loc,
+                messageId : "unnecessaryCurlies",
                 
                 fix(fixer) {
                     const tokens = source.getTokens(node);
 
-                    // Remove everything up to the first token, and the entire last token since
+                    // Remove everything up to the second token, and the entire last token since
                     // those are known to be "{" and "}"
                     return [
                         fixer.removeRange([
-                            tokens[0].start,
-                            tokens[1].start - 1,
+                            tokens[0].range[0],
+                            tokens[1].range[0],
                         ]),
                         
                         fixer.removeRange([
-                            tokens[tokens.length - 1].start,
-                            tokens[tokens.length - 1].end,
+                            tokens[tokens.length - 2].range[1],
+                            tokens[tokens.length - 1].range[1],
                         ]),
                     ];
                 },
@@ -44,6 +48,7 @@ module.exports = {
         };
 
         return {
+            // $: { foo = info; }
             [`LabeledStatement[label.name="$"] > BlockStatement[body.length=1]`] : report,
         };
     },

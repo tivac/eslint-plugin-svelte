@@ -10,7 +10,11 @@ module.exports = {
             recommended : false,
         },
 
-        fixable : true,
+        messages : {
+            noReactiveLiterals : `Do not assign literal values inside reactive statements unless absolutely necessary.`,
+        },
+
+        fixable : "code",
     },
 
     create(context) {
@@ -22,8 +26,8 @@ module.exports = {
 
             return context.report({
                 node,
-                loc     : node.loc,
-                message : `Do not assign literal values inside reactive statements unless absolutely necessary.`,
+                loc       : node.loc,
+                messageId : "noReactiveLiterals",
 
                 fix(fixer) {
                     const tokens = source.getTokens(node);
@@ -31,8 +35,8 @@ module.exports = {
                     // Replace the entire reactive label with "let"
                     return fixer.replaceTextRange(
                         [
-                            tokens[0].start,
-                            tokens[1].end,
+                            tokens[0].range[0],
+                            tokens[1].range[1],
                         ],
                         "let"
                     );

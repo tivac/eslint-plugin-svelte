@@ -7,6 +7,9 @@ module.exports = {
             category    : "Best Practices",
             recommended : false,
         },
+        messages : {
+            useDestructuring : "Destructure \\{{prop}} from store \\{{store}} for better change tracking",
+        },
     },
 
     create(context) {
@@ -18,9 +21,15 @@ module.exports = {
             [`MemberExpression[object.name=/\$/][property.name]`](node) {
                 return context.report({
                     node,
-                    message : `Destructure properties from stores that hold an object for more granular redraw perf.`,
+                    messageId : "useDestructuring",
+                    data      : {
+                        store : node.object.name,
+                        prop  : node.property.name,
+                    },
                 });
             },
         };
     },
 };
+
+
