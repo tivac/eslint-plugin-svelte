@@ -10,7 +10,11 @@ module.exports = {
             recommended : false,
         },
 
-        fixable : true,
+        messages : {
+            storeDefaultValue : `Always set a default value of "false" for svelte stores.`,
+        },
+
+        fixable : "code",
     },
 
     create(context) {
@@ -20,9 +24,9 @@ module.exports = {
 
             return context.report({
                 node,
-                loc     : node.loc,
-                message : `Always set a default value of "false" for svelte stores.`,
-                fix     : (fixer) => [
+                loc       : node.loc,
+                messageId : "storeDefaultValue",
+                fix       : (fixer) => [
                     // adds a "false" argument before the last ")"
                     tokens[0].value === "derived" ?
                         fixer.insertTextBefore(tokens[tokens.length - 1], ", false") :

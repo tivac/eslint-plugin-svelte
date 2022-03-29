@@ -10,7 +10,11 @@ module.exports = {
             recommended : false,
         },
 
-        fixable : true,
+        messages : {
+            noAsyncStores : `Do not pass async functions to svelte stores.`,
+        },
+
+        fixable : "code",
     },
 
     create(context) {
@@ -26,15 +30,15 @@ module.exports = {
             const tokens = source.getTokens(fn);
 
             context.report({
-                node    : fn,
-                loc     : fn.loc,
-                message : `Do not pass async functions to svelte stores.`,
+                node      : fn,
+                loc       : fn.loc,
+                messageId : "noAsyncStores",
 
                 fix : (fixer) => [
                     // Removes the leading "async " from the function definition
                     fixer.removeRange([
-                        tokens[0].start,
-                        tokens[1].start,
+                        tokens[0].range[0],
+                        tokens[1].range[0],
                     ]),
                 ],
             });
