@@ -12,7 +12,7 @@ jobs:
         with:
           release-type: node
           monorepo-tags: false
-          pull-request-title-pattern: "release: v{{version}} 📦🚀🌐"
+          pull-request-title-pattern: "release: v${version} 📦🚀🌐"
       
       - uses: actions/checkout@v2
         # these if statements ensure that a publication only occurs when
