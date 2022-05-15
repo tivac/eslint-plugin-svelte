@@ -4,6 +4,7 @@
   "description": "Svelte.js focused ESLint rules",
   "main": "index.js",
   "devDependencies": {
+    "@changesets/cli": "^2.22.0",
     "@tivac/eslint-config": "^2.4.0",
     "c8": "^7.11.0",
     "eslint": "^8.12.0",
@@ -15,7 +16,9 @@
   "scripts": {
     "lint": "eslint . --cache",
     "test": "uvu",
-    "test:coverage": "c8 --check-coverage -100 --reporter=html --reporter=text uvu"
+    "test:coverage": "c8 --check-coverage -100 --reporter=html --reporter=text uvu",
+    "changeset": "changeset",
+    "release": "changeset publish"
   },
   "keywords": [
     "eslint",
