@@ -4,12 +4,6 @@ const labeledStatementBase = `LabeledStatement[label.name="$"] > ExpressionState
 
 module.exports = {
     meta : {
-        docs : {
-            description : "Assigning to literal values inside reactive statements is bad, don't do it",
-            category    : "Best Practices",
-            recommended : false,
-        },
-
         messages : {
             noReactiveLiterals : `Do not assign literal values inside reactive statements unless absolutely necessary.`,
         },

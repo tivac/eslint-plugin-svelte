@@ -2,12 +2,6 @@
 
 module.exports = {
     meta : {
-        docs : {
-            description : "Creating functions inside reactive statements is bad, don't do it",
-            category    : "Best Practices",
-            recommended : false,
-        },
-
         messages : {
             noReactiveFns : `Do not create functions inside reactive statements unless absolutely necessary.`,
         },

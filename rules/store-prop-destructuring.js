@@ -2,13 +2,8 @@
 
 module.exports = {
     meta : {
-        docs : {
-            description : "Destructure properties from stores containing objects for better redraw perf",
-            category    : "Best Practices",
-            recommended : false,
-        },
         messages : {
-            useDestructuring : "Destructure \\{{prop}} from store \\{{store}} for better change tracking",
+            useDestructuring : `Destructure {{prop}} from store {{store}} for better change tracking`,
         },
     },
 

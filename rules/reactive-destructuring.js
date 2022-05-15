@@ -6,12 +6,6 @@ module.exports = {
     meta : {
         type : "problem",
 
-        docs : {
-            description : "Prefer destructuring, even in reactive statements",
-            category    : "Best Practices",
-            recommended : false,
-        },
-
         messages : {
             useDestructuring : `Prefer destructuring in reactive statements`,
         },
