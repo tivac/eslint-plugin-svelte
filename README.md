@@ -35,10 +35,11 @@ This plugin provides a shared config named `svelte` which can be used by adding 
 
 ## Rules
 
+- `derived-inputs-outputs`, input & value names of `derived()` should match
 - `reactive-curlies`, don't add `{ ... }` if there's only a single statement
 - `reactive-destructuring`, prefer destructuring for reactive reassignments
 - `reactive-functions`, don't define functions inside reactive statements
 - `reactive-literals`, don't assign literals in a reactive statement
+- `store-prop-destructuring`, don't access store values as `$foo.bar` but instead destructure them `$: ({ bar } = $foo);` for more granular redraws
 - `stores-initial-value`, always give svelte stores a default value
 - `stores-no-async`, don't use `async`/`await` inside svelte stores because it causes issues with the auto-unsubscribing features
-- `store-prop-destructuring`, don't access store values as `$foo.bar` but instead destructure them `$: ({ bar } = $foo);` for more granular redraws
