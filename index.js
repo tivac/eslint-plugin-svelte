@@ -8,6 +8,7 @@ module.exports = {
         "reactive-literals"      : require("./rules/reactive-literals.js"),
         "stores-initial-value"   : require("./rules/stores-initial-value.js"),
         "stores-no-async"        : require("./rules/stores-no-async.js"),
+        "derived-inputs-outputs" : require("./rules/derived-inputs-outputs.js"),
     },
 
     configs : {
@@ -19,6 +20,7 @@ module.exports = {
                 "@tivac/svelte/reactive-literals"      : "warn",
                 "@tivac/svelte/stores-initial-value"   : "warn",
                 "@tivac/svelte/stores-no-async"        : "error",
+                "@tivac/svelte/derived-inputs-ouputs"  : "warn",
             },
         },
     },
