@@ -10,15 +10,24 @@ _tester("stores-no-async", rule, {
 
     invalid : [{
         code   : `const w = writable(false, async () => {});`,
-        output : `const w = writable(false, () => {});`,
-        errors : [{ messageId : "noAsyncStores" }],
+        errors : [{
+            suggestions : [{
+                output : `const w = writable(false, () => {});`,
+            }],
+        }],
     }, {
         code   : `const r = readable(false, async () => {});`,
-        output : `const r = readable(false, () => {});`,
-        errors : [{ messageId : "noAsyncStores" }],
+        errors : [{
+            suggestions : [{
+                output : `const r = readable(false, () => {});`,
+            }],
+        }],
     }, {
         code   : `const d = derived([a, b], async () => {}, false);`,
-        output : `const d = derived([a, b], () => {}, false);`,
-        errors : [{ messageId : "noAsyncStores" }],
+        errors : [{
+            suggestions : [{
+                output : `const d = derived([a, b], () => {}, false);`,
+            }],
+        }],
     }],
 });
