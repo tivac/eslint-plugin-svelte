@@ -22,13 +22,13 @@ Add the plugin's name to the `plugin` section of your ESLint config.
 
 ### Shared config
 
-This plugin provides a shared config named `svelte` which can be used by adding it to the `extends` section in your ESLint config.
+This plugin provides a shared config named `recommended` which can be used by adding it to the `extends` section in your ESLint config.
 
 ```json
 {
     "extends" : [
         "eslint:recommended",
-        "plugin:@tivac/svelte/svelte"
+        "plugin:@tivac/svelte/recommended"
     ]
 }
 ```
