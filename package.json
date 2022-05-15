@@ -18,7 +18,8 @@
     "test": "uvu",
     "test:coverage": "c8 --check-coverage -100 --reporter=html --reporter=text uvu",
     "changeset": "changeset",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "version": "changeset version"
   },
   "keywords": [
     "eslint",
