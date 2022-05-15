@@ -4,12 +4,6 @@ module.exports = {
     meta : {
         type : "problem",
 
-        docs : {
-            description : "Svelte3 stores should always have a default value (ideally false) for destructuring purposes",
-            category    : "Best Practices",
-            recommended : false,
-        },
-
         messages : {
             storeDefaultValue : `Always set a default value of "false" for svelte stores.`,
         },
