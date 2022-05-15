@@ -2,12 +2,6 @@
 
 module.exports = {
     meta : {
-        docs : {
-            description : "Unnecessary curly braces around reactive statements are unnecessary, don't do it!",
-            category    : "Best Practices",
-            recommended : false,
-        },
-
         messages : {
             unnecessaryCurlies : `Do not wrap reactive statements in curly braces unless necessary.`,
         },
