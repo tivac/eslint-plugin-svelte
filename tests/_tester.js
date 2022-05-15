@@ -2,7 +2,7 @@ const { RuleTester } = require("eslint");
 const { suite } = require("uvu");
 
 module.exports = (name, rule, tests) => {
-    const test = suite("store-prop-destructuring");
+    const test = suite(name);
 
     RuleTester.it = test;
     RuleTester.itOnly = test.only;
