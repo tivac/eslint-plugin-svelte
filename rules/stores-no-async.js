@@ -2,19 +2,13 @@
 
 module.exports = {
     meta : {
-        type : "problem",
-
-        docs : {
-            description : "Svelte3 store callbacks can't be async, because they expect the returned value to be a function",
-            category    : "Best Practices",
-            recommended : false,
-        },
+        type : "suggestion",
 
         messages : {
             noAsyncStores : `Do not pass async functions to svelte stores.`,
         },
 
-        fixable : "code",
+        hasSuggestions : true,
     },
 
     create(context) {
@@ -34,13 +28,14 @@ module.exports = {
                 loc       : fn.loc,
                 messageId : "noAsyncStores",
 
-                fix : (fixer) => [
-                    // Removes the leading "async " from the function definition
-                    fixer.removeRange([
+                // Remove the leading "async " from the function definition
+                suggest : [{
+                    desc : "Remove the async and use Promise methods instead",
+                    fix  : (fixer) => fixer.removeRange([
                         tokens[0].range[0],
                         tokens[1].range[0],
                     ]),
-                ],
+                }],
             });
         };
 
