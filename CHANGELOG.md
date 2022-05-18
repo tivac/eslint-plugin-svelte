@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- 3babc1b: Corrected a misspelled rule name in `@tivac/svelte/recommended`.
+
 ## 3.0.0
 
 ### Major Changes
