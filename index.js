@@ -20,7 +20,7 @@ module.exports = {
                 "@tivac/svelte/reactive-literals"      : "warn",
                 "@tivac/svelte/stores-initial-value"   : "warn",
                 "@tivac/svelte/stores-no-async"        : "error",
-                "@tivac/svelte/derived-inputs-ouputs"  : "warn",
+                "@tivac/svelte/derived-inputs-outputs" : "warn",
             },
         },
     },
