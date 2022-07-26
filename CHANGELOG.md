@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- 4c16cd8: Added a new config, `@tivac/svelte/base` that loads just the plugin. The `@tivac/svelte/recommended` config now also automatically loads the plugin.
+
+  The `derived-inputs-ouputs` rule should be a bit less likely to explode on bad input.
+
 ## 3.0.1
 
 ### Patch Changes
