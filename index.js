@@ -13,6 +13,7 @@ module.exports = {
 
     configs : {
         recommended : {
+            plugins : [ "@tivac/svelte" ],
             rules : {
                 "@tivac/svelte/reactive-curlies"       : "warn",
                 "@tivac/svelte/reactive-destructuring" : "warn",
