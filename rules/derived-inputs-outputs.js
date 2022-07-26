@@ -18,9 +18,9 @@ module.exports = {
         const check = (sources, values) => {
             sources.forEach((input, idx) => {
                 const expected = `$${input.name}`;
-                const actual = values[idx].name;
+                const actual = values[idx] ? values[idx].name : null;
               
-                if(expected === actual) {
+                if(actual === null || expected === actual) {
                     return;
                 }
             
@@ -79,7 +79,7 @@ module.exports = {
                 const values = [];
 
                 for(const output of callback.params[0].elements) {
-                    if(output.type !== "Identifier") {
+                    if(output && output.type !== "Identifier") {
                         return;
                     }
 
