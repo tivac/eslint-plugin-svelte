@@ -10,24 +10,17 @@ $> npm install --save-dev @tivac/eslint-plugin-svelte
 
 ## Using the plugin
 
-Add the plugin's name to the `plugin` section of your ESLint config.
-
-```json
-{
-    "plugins" : [
-        "@tivac/svelte"
-    ]
-}
-```
-
-### Shared config
-
-This plugin provides a shared config named `recommended` which can be used by adding it to the `extends` section in your ESLint config.
+Add one of the shared configs provided by this plugin to the `extends` section in your ESLint config.
 
 ```json
 {
     "extends" : [
-        "eslint:recommended",
+        // Only enables the plugin, no rule config
+        "plugin:@tivac/svelte/base"
+
+        // or
+
+        // Enables the plugin and all rules
         "plugin:@tivac/svelte/recommended"
     ]
 }

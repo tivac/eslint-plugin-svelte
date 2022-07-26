@@ -1,5 +1,9 @@
 "use strict";
 
+const base = {
+    plugins : [ "@tivac/svelte" ],
+};
+
 module.exports = {
     rules : {
         "reactive-curlies"       : require("./rules/reactive-curlies.js"),
@@ -12,8 +16,10 @@ module.exports = {
     },
 
     configs : {
+        base,
+
         recommended : {
-            plugins : [ "@tivac/svelte" ],
+            ...base,
             rules : {
                 "@tivac/svelte/reactive-curlies"       : "warn",
                 "@tivac/svelte/reactive-destructuring" : "warn",
