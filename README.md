@@ -1,4 +1,10 @@
-# @tivac/eslint-plugin-svelte
+# ⚠ @tivac/eslint-plugin-svelte IS DEPRECATED ⚠
+
+[`eslint-plugin-svelte`](https://ota-meshi.github.io/eslint-plugin-svelte/) now does everything this plugin does (and more) with less weirdness.
+
+Use it instead!
+
+---
 
 ## Installing the plugin
 
