@@ -12,7 +12,7 @@ $> npm install --save-dev @tivac/eslint-plugin-svelte
 
 Add one of the shared configs provided by this plugin to the `extends` section in your ESLint config.
 
-```json
+```json5
 {
     "extends" : [
         // Only enables the plugin, no rule config
